@@ -17,6 +17,7 @@
     <object>objects\obj_infantry</object>
     <object>objects\obj_enemy1</object>
     <object>objects\obj_wall</object>
+    <object>objects\res_manager</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
