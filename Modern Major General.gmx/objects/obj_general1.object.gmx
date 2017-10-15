@@ -125,7 +125,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>25</string>
+            <string>40</string>
           </argument>
         </arguments>
       </action>
@@ -150,6 +150,30 @@
           <argument>
             <kind>0</kind>
             <string>60</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cost_infantry</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>15</string>
           </argument>
         </arguments>
       </action>
@@ -305,6 +329,70 @@ if (keyboard_check_pressed(ord('C'))) {
         if (collide == noone &amp;&amp; collide2 == noone) {
             instance_create(build_x, build_y, obj_barracks);
             global.res_array[0].res -= cost_barracks;
+        }
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Build infantry script
+// ---
+// Infantry
+if (keyboard_check_pressed(ord('E'))) {
+    //Check resource bar
+    if(global.res_array[0].res &gt;= cost_infantry){
+        var spr_bar = object_get_sprite(obj_barracks);
+        var spr_bar_h = sprite_get_height(spr_bar);
+        var spr_bar_w = sprite_get_width(spr_bar);
+        
+        var spr_inf = object_get_sprite(obj_infantry);
+        var spr_inf_h = sprite_get_height(spr_inf);
+        var spr_inf_w = sprite_get_width(spr_inf);
+        
+        var build_x = (x div spr_bar_w) * spr_bar_w + spr_bar_w / 2;
+        var build_y = (y div spr_bar_h) * spr_bar_h + spr_bar_w / 2;
+        
+        var collide = 
+            collision_point(build_x,
+                            build_y,
+                            obj_barracks,
+                            false,
+                            true);
+        var collide2 = 
+            collision_point(build_x,
+                            build_y,
+                            obj_enemy1,
+                            false,
+                            true);
+        var collide3 = 
+            collision_point(build_x,
+                            build_y,
+                            obj_infantry,
+                            false,
+                            true);
+                            
+        if (collide == noone &amp;&amp; collide2 == noone &amp;&amp; collide3 == noone) {
+            instance_create(build_x, build_y, obj_infantry);
+            global.res_array[0].res -= cost_infantry;
         }
     }
 }

@@ -14,12 +14,20 @@
     <sprite>sprites\spr_barracks_temp</sprite>
     <sprite>sprites\spr_hive_temp</sprite>
     <sprite>sprites\spr_base_temp</sprite>
+    <sprite>sprites\spr_base_1</sprite>
+    <sprite>sprites\spr_base_2</sprite>
+    <sprite>sprites\spr_base_3</sprite>
+    <sprite>sprites\spr_base_4</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_health_bar.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_main</font>
+    <font>fonts\font_title</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_infantry</object>
     <object>objects\obj_general1</object>
@@ -29,8 +37,10 @@
     <object>objects\obj_barracks</object>
     <object>objects\obj_hive</object>
     <object>objects\obj_base</object>
+    <object>objects\obj_mainmenu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_mainmenu</room>
     <room>rooms\room0</room>
   </rooms>
   <help>
