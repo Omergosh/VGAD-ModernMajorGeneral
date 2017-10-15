@@ -23,8 +23,8 @@ var spr_w2 = sprite_get_width(spr_ind) / 2;
 // Build bounding boxes of health bar
 var bot = obj_ind.y - spr_h2 - pad;
 var top = bot - bar_h;
-var full_rgt = obj_ind.x - spr_w2;
-var full_lft = obj_ind.x + spr_w2;
+var full_lft = obj_ind.x - spr_w2;
+var full_rgt = obj_ind.x + spr_w2;
 
 // Draw background
 draw_set_colour(c_black);
@@ -36,6 +36,7 @@ var color = merge_color(c_red, c_green, scale);
 var hp_rgt = (full_rgt - full_lft) * scale + full_lft;
 draw_set_colour(color);
 draw_rectangle(full_lft, top, hp_rgt, bot, false);
+show_debug_message("L: " + string(full_lft) + " R: " + string(hp_rgt));
 
 // Draw outline
 draw_set_colour(c_black);
