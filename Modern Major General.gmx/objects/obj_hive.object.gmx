@@ -80,12 +80,10 @@ alarm_set(SPAWN_ALARM_INDEX, spawn_time_ticks);
 // Calculate position to spawn in
 // Potential to choose a different enemy type here?
 var tile = irandom(tile_count - 1); // -1 because inclusive range
-for (var i = 0; i &lt; tile_count; i += 1) {
 var enemy_x = x - (unit_width / 2) - spawn_offset;
-//var enemy_y = y + (tile_height * tile) + (tile_height / 2) - (unit_height / 2);
-var enemy_y = y + (tile_height * i) + (tile_height / 2);
+var enemy_y = y + (tile_height * tile) + (tile_height / 2);
 instance_create(enemy_x, enemy_y, obj_enemy1);
-}
+
 
 // Reset alarm
 alarm_set(SPAWN_ALARM_INDEX, spawn_time_ticks);
