@@ -12,6 +12,7 @@
     <sprite>sprites\spr_enemy1</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_barracks_temp</sprite>
+    <sprite>sprites\spr_hive_temp</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -22,6 +23,7 @@
     <object>objects\obj_wall</object>
     <object>objects\res_manager</object>
     <object>objects\obj_barracks</object>
+    <object>objects\obj_hive</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
