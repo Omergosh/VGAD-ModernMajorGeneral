@@ -49,11 +49,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>current_hp</string>
+            <string>max_hp</string>
           </argument>
           <argument>
             <kind>0</kind>
             <string>8</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>current_hp</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>max_hp</string>
           </argument>
         </arguments>
       </action>
@@ -246,7 +270,7 @@
         <isnot>0</isnot>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_enemy1">
       <action>
         <libid>1</libid>
         <id>115</id>
@@ -435,113 +459,41 @@
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>524</id>
+        <id>601</id>
         <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
+        <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_color</functionname>
+        <functionname>action_execute_script</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>13</kind>
-            <string>255</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>511</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_rectangle</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>16-current_hp</string>
+            <kind>9</kind>
+            <script>draw_health_bar</script>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-6</string>
+            <string>id</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>16+current_hp</string>
+            <string>sprite_index</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-2</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>524</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_color</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>13</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>511</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_rectangle</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>16-current_hp</string>
+            <string></string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-6</string>
+            <string></string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>16+current_hp</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>-2</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

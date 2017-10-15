@@ -16,6 +16,9 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_health_bar.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_infantry</object>
     <object>objects\obj_general1</object>
