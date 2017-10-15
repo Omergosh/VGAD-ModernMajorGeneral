@@ -26,6 +26,11 @@ var top = bot - bar_h;
 var full_lft = obj_ind.x - spr_w2;
 var full_rgt = obj_ind.x + spr_w2;
 
+if (top < 0) {
+  bot -= top; // bot += -top; // Moves bot down by as far top is offscreen
+  top = 0; // Set top to 0
+}
+
 // Draw background
 draw_set_colour(c_black);
 draw_rectangle(full_lft, top, full_rgt, bot, false);
