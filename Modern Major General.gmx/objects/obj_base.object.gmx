@@ -203,8 +203,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Change sprite if damaged
-var per = base_health / base_max_health;
-show_debug_message("Per: " + string(per));
+var per = base_health / base_max_health;\
 if (per &lt;= .1)
     sprite_index = spr_base_4;
 else if (per &lt;= .4)
