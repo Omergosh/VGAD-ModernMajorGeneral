@@ -275,13 +275,37 @@ if (next_y - half_sprite_height &lt;= min_y) {
             <string>/// Build barracks script
 // ---
 // Barracks
-if(keyboard_check_pressed(ord('C'))){
+if (keyboard_check_pressed(ord('C'))) {
     //Check resource bar
     if(global.res_array[0].res &gt;= cost_barracks){
-        var build_x = x - sprite_width/2;
-        var build_y = y - sprite_height/2;
-        instance_create(build_x, build_y, obj_barracks);
-        global.res_array[0].res -= cost_barracks;
+        var spr_bar = object_get_sprite(obj_barracks);
+        var spr_bar_h = sprite_get_height(spr_bar);
+        var spr_bar_w = sprite_get_width(spr_bar);
+        
+        var build_x = (x div spr_bar_w) * spr_bar_w;
+        var build_y = (y div spr_bar_h) * spr_bar_h;
+        
+        // Check for collisions
+        var col_x = build_x + (spr_bar_w / 2);
+        var col_y = build_y + (spr_bar_h / 2);
+        
+        var collide = 
+            collision_point(col_x,
+                            col_y,
+                            obj_barracks,
+                            false,
+                            true);
+        var collide2 = 
+            collision_point(col_x,
+                            col_y,
+                            obj_enemy1,
+                            false,
+                            true);
+                            
+        if (collide == noone &amp;&amp; collide2 == noone) {
+            instance_create(build_x, build_y, obj_barracks);
+            global.res_array[0].res -= cost_barracks;
+        }
     }
 }
 
