@@ -7,7 +7,89 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// ---
+// Hive setup
+// ---
+spawn_time_seconds = 3;
+tile_height = 32; // TWEAK TO REDUCE THE NUMBER OF TILES to spawn in
+spawn_offset = 5; // CHANGE ME TO TWEAK DISTANCE SPAWNED TO LEFT OF HIVE
+
+
+// vv DON'T TOUCH BELOW vv
+// Alarm used to spawn units
+SPAWN_ALARM_INDEX = 0;
+
+// Calculate alarm ticks
+spawn_time_ticks = spawn_time_seconds * room_speed;
+
+// Get the number of tiles, aka how many spots to spawn in
+tile_count = round(room_height / tile_height);
+
+// Calculate displacement for spawned units, currently only enemy type 1
+var sprite_ind = object_get_sprite(obj_enemy1);
+unit_height = sprite_get_height(sprite_ind);
+unit_width = sprite_get_width(sprite_ind);
+
+// Start the spawn alarm
+alarm_set(SPAWN_ALARM_INDEX, spawn_time_ticks);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// ---
+// Spawn unit scipt
+// ---
+// Calculate position to spawn in
+// Potential to choose a different enemy type here?
+var tile = irandom(tile_count - 1); // -1 because inclusive range
+var enemy_x = x - unit_width - spawn_offset;
+var enemy_y = y + (tile_height * tile) + (tile_height / 2) - (unit_height / 2);
+instance_create(enemy_x, enemy_y, obj_enemy1);
+
+// Reset alarm
+alarm_set(SPAWN_ALARM_INDEX, spawn_time_ticks);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
