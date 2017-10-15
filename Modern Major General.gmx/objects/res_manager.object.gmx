@@ -54,12 +54,16 @@ tier_size = mid_res / tiers;
 
 // Drawing text variables set up
 // Can statically set up height
+draw_set_font(font_resources);
 var text_height = string_height("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); // Only need this once
 text_top = bar_y - (3 * text_height / 2);
 
 // Need to recalculate horizontal position to stop text flickering
 max_text_width = string_width(string(max_res) + " / " + string(max_res)); // Need this to right justify
 text_base_left = bar_x + (bar_width / 2) - (max_text_width / 2);
+
+show_debug_message(string(bar_x) + " " + string(bar_width) + " " + string(bar_x + (bar_width / 2)));
+show_debug_message(string(max_text_width / 2) + " " + string(text_base_left));
 
 
 </string>
@@ -151,8 +155,11 @@ draw_set_colour(color);
 draw_rectangle(left, top, right, bottom, false);
 
 // Text drawing
+draw_set_font(font_resources);
+draw_set_halign(fa_left);
 var str = string(round(res)) + " / " + string(max_res);
 var text_left = text_base_left + (max_text_width - string_width(str));
+show_debug_message(string(text_left) + " " + string(bar_x));
 draw_set_color(c_white);
 draw_text(text_left, text_top, str);
 
