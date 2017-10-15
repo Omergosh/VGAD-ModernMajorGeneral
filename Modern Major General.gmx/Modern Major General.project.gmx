@@ -14,6 +14,10 @@
     <sprite>sprites\spr_barracks_temp</sprite>
     <sprite>sprites\spr_hive_temp</sprite>
     <sprite>sprites\spr_base_temp</sprite>
+    <sprite>sprites\spr_base_1</sprite>
+    <sprite>sprites\spr_base_2</sprite>
+    <sprite>sprites\spr_base_3</sprite>
+    <sprite>sprites\spr_base_4</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
