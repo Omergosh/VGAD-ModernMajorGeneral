@@ -23,8 +23,8 @@ var spr_w2 = sprite_get_width(spr_ind) / 2;
 // Build bounding boxes of health bar
 var bot = obj_ind.y - spr_h2 - pad;
 var top = bot - bar_h;
-var full_rgt = obj_ind.x - spr_w2;
-var full_lft = obj_ind.x + spr_w2;
+var full_lft = obj_ind.x - spr_w2;
+var full_rgt = obj_ind.x + spr_w2;
 
 // Draw background
 draw_set_colour(c_black);
