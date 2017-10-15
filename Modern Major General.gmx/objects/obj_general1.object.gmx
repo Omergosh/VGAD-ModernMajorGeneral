@@ -109,110 +109,6 @@
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>402</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>-1</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if_collision</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>421</id>
-        <kind>3</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -228,6 +124,7 @@
           <argument>
             <kind>1</kind>
             <string>//If keys are pressed, change momentum, else maintain momentum
+// Horizontal
 if keyboard_check(ord('A')) {
     if (hspeed - general_accel &lt;= -general_speed)
         hspeed = -general_speed;
@@ -253,53 +150,63 @@ if keyboard_check(ord('A')) {
     }
 }
 
-// Make sure we can't go off screen
+// Make sure we can't go off screen horizontally
 var next_x = x + hspeed;
 var half_sprite_width = abs(sprite_width) / 2;
-show_debug_message("NEXT X: " + string(next_x) + " WIDTH: " + string(half_sprite_width));
-if (next_x - half_sprite_width &lt;= 0) {
-    x = half_sprite_width;
+var min_x = 0; // Change me?
+var max_x = room_width - sprite_get_width(object_get_sprite(obj_hive));
+
+if (next_x - half_sprite_width &lt;= min_x) {
+    x = min_x + half_sprite_width;
     hspeed = 0;
-    show_debug_message("TRIGGER");
-} else if (next_x + half_sprite_width &gt;= room_width) {
-    x = room_width - half_sprite_width;
+} else if (next_x + half_sprite_width &gt;= max_x) {
+    x = max_x - half_sprite_width;
     hspeed = 0;
 }
 
-if keyboard_check(ord('W')){
-    if(vspeed &gt; -general_speed){
-        vspeed--;
-    }
-}else if keyboard_check(ord('S')){
-    if(vspeed &lt; general_speed){
-        vspeed++;
-    }
-}else{
-    if(vspeed&gt;0){
-        vspeed--;
-    }
-    if(vspeed&lt;0){
-        vspeed++;
+// Vertical
+if keyboard_check(ord('W')) {
+    if (vspeed - general_accel &lt;= -general_speed)
+        vspeed = -general_speed;
+    else
+        vspeed -= general_accel;
+} else if keyboard_check(ord('S')) {
+    if (vspeed + general_accel &gt;= general_speed)
+        vspeed = general_speed
+    else
+        vspeed += general_accel;
+} else {
+    // Do we want a separate de-accel var?
+    if (vspeed &gt; 0) {
+        if (vspeed - general_accel &lt;= 0)
+            vspeed = 0;
+        else
+            vspeed -= general_accel;
+    } else if (vspeed &lt; 0){
+        if (vspeed + general_accel &gt;= 0)
+            vspeed = 0;
+        else
+            vspeed += general_accel;
     }
 }
 
+// Make sure we can't go off screen horizontally
+var next_y = y + vspeed;
+var half_sprite_height = abs(sprite_height) / 2;
+var min_y = 0;
+var max_y = room_height; // Change me? Goes behind UI bars
+
+// Vertical
+if (next_y - half_sprite_height &lt;= min_y) {
+    y = min_y + half_sprite_height;
+    vspeed = 0;
+} else if (next_y + half_sprite_height &gt;= max_y) {
+    y = max_y - half_sprite_height;
+    vspeed = 0;
+}
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="4" ename="obj_enemy1">
