@@ -11,6 +11,17 @@
     <sprite>sprites\spr_general1</sprite>
     <sprite>sprites\spr_enemy1</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_humanBase_healthy</sprite>
+    <sprite>sprites\spr_humanBase_damage1</sprite>
+    <sprite>sprites\spr_humanBase_damage2</sprite>
+    <sprite>sprites\spr_FULLYdamaged</sprite>
+    <sprite>sprites\spr_hive_healthy</sprite>
+    <sprite>sprites\spr_hive_damage1</sprite>
+    <sprite>sprites\spr_hive_damage2</sprite>
+    <sprite>sprites\spr_hive_damageFULLYcovered</sprite>
+    <sprite>sprites\spr_crate</sprite>
+    <sprite>sprites\spr_barracks_human</sprite>
+    <sprite>sprites\spr_barracks_humanDamaged</sprite>
     <sprite>sprites\spr_barracks_temp</sprite>
     <sprite>sprites\spr_hive_temp</sprite>
     <sprite>sprites\spr_base_temp</sprite>
@@ -19,7 +30,9 @@
     <sprite>sprites\spr_base_3</sprite>
     <sprite>sprites\spr_base_4</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\groundTile</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_health_bar.gml</script>
@@ -42,7 +55,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room_mainmenu</room>
-    <room>rooms\room0</room>
+    <room>rooms\room_battlefield</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
