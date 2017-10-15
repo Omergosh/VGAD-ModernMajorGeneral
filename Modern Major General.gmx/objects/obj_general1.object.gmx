@@ -171,7 +171,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//If keys are pressed, change momentum, else maintain momentum
+            <string>/// Move general
+//If keys are pressed, change momentum, else maintain momentum
 // Horizontal
 if keyboard_check(ord('A')) {
     if (hspeed - general_accel &lt;= -general_speed)
@@ -244,7 +245,6 @@ var half_sprite_height = abs(sprite_height) / 2;
 var min_y = 0;
 var max_y = room_height; // Change me? Goes behind UI bars
 
-// Vertical
 if (next_y - half_sprite_height &lt;= min_y) {
     y = min_y + half_sprite_height;
     vspeed = 0;
