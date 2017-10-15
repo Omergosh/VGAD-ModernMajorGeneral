@@ -511,7 +511,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>room0</room>
+            <room>room_battlefield</room>
           </argument>
         </arguments>
       </action>
