@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
     <sprite>sprites\spr_infantry</sprite>
+    <sprite>sprites\spr_general1</sprite>
     <sprite>sprites\spr_enemy1</sprite>
     <sprite>sprites\spr_wall</sprite>
   </sprites>
@@ -15,6 +16,7 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_infantry</object>
+    <object>objects\obj_general1</object>
     <object>objects\obj_enemy1</object>
     <object>objects\obj_wall</object>
     <object>objects\res_manager</object>
