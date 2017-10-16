@@ -25,11 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hive_health</string>
+            <string>max_hive_health</string>
           </argument>
           <argument>
             <kind>0</kind>
             <string>50</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hive_health</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>max_hive_health</string>
           </argument>
         </arguments>
       </action>
@@ -301,7 +325,7 @@ alarm_set(SPAWN_ALARM_INDEX, spawn_time_ticks);
           <argument>
             <kind>1</kind>
             <string>/// Change sprite if damaged
-var per = base_health / base_max_health;
+var per = hive_health / max_hive_health;
 if (per &lt;= .1)
     sprite_index = spr_hive_4;
 else if (per &lt;= .4)
