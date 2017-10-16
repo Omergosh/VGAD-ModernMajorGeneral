@@ -11,14 +11,10 @@
     <sprite>sprites\spr_general1</sprite>
     <sprite>sprites\spr_enemy1</sprite>
     <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_humanBase_healthy</sprite>
-    <sprite>sprites\spr_humanBase_damage1</sprite>
-    <sprite>sprites\spr_humanBase_damage2</sprite>
-    <sprite>sprites\spr_FULLYdamaged</sprite>
-    <sprite>sprites\spr_hive_healthy</sprite>
-    <sprite>sprites\spr_hive_damage1</sprite>
-    <sprite>sprites\spr_hive_damage2</sprite>
-    <sprite>sprites\spr_hive_damageFULLYcovered</sprite>
+    <sprite>sprites\spr_hive_1</sprite>
+    <sprite>sprites\spr_hive_2</sprite>
+    <sprite>sprites\spr_hive_3</sprite>
+    <sprite>sprites\spr_hive_4</sprite>
     <sprite>sprites\spr_crate</sprite>
     <sprite>sprites\spr_barracks_human</sprite>
     <sprite>sprites\spr_barracks_humanDamaged</sprite>
